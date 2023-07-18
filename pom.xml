@@ -33,10 +33,21 @@
         <org.projectlombok.version>1.18.26</org.projectlombok.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
-        <org.springdoc.version>2.1.0</org.springdoc.version>
 
         <org.lcm.exception.version>0.0.1-SNAPSHOT</org.lcm.exception.version>
         <org.lcm.handler-method-return-value.version>0.0.1-SNAPSHOT</org.lcm.handler-method-return-value.version>
+
+        <org.snakeyaml.snakeyaml-engine.version>2.6</org.snakeyaml.snakeyaml-engine.version>
+
+        <!--  Download file from Dropbox shared url     -->
+        <org.apache.httpcomponents.client5.httpclient5.version>5.2.1</org.apache.httpcomponents.client5.httpclient5.version>
+
+        <!--  Read CSV     -->
+        <org.apache.commons.commons-csv.version>1.10.0</org.apache.commons.commons-csv.version>
+
+        <!-- openAPI -->
+        <org.springdoc.version>2.1.0</org.springdoc.version>
+        <knife4j-openapi3-jakarta-spring-boot-starter.version>4.1.0</knife4j-openapi3-jakarta-spring-boot-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -50,7 +61,74 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.lcm</groupId>
+                <artifactId>handler-method-return-value</artifactId>
+                <version>${org.lcm.handler-method-return-value.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.lcm</groupId>
+                <artifactId>exception</artifactId>
+                <version>${org.lcm.exception.version}</version>
+            </dependency>
+
+            <!--  Spring Data JPA 集成 QueryDsl      -->
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-apt</artifactId>
+                <version>${querydsl-apt.version}</version>
+                <classifier>jpa</classifier>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.snakeyaml</groupId>
+                <artifactId>snakeyaml-engine</artifactId>
+                <version>${org.snakeyaml.snakeyaml-engine.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${org.projectlombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${org.mapstruct.version}</version>
+            </dependency>
+
+            <!--  Download file from Dropbox shared url     -->
+            <dependency>
+                <groupId>org.apache.httpcomponents.client5</groupId>
+                <artifactId>httpclient5</artifactId>
+                <version>${org.apache.httpcomponents.client5.httpclient5.version}</version>
+            </dependency>
+
+            <!--  Read CSV     -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-csv</artifactId>
+                <version>${org.apache.commons.commons-csv.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+                <version>${knife4j-openapi3-jakarta-spring-boot-starter.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.yaml</groupId>
+                        <artifactId>snakeyaml</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
         </dependencies>
+
     </dependencyManagement>
          
 </project>
